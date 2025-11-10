@@ -191,6 +191,15 @@ struct EngineTypes : View {
                             Engine(name: "316i", volume: "1.6", code: "M43B16", fuelType: "Бензин", horsepower: 102, years: "09.1993 - 04.1999", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
                            
                         ]
+                    ),
+                    Kuzov(
+                        bodyType: "Cabriolet",
+                        year: "1993–1999",
+                        imageName: "e36_cabriolet",
+                        engines: [
+                            Engine(name: "318i", volume: "1.8", code: "M43B18", fuelType: "Бензин", horsepower: 115, years: "09.1993 - 04.1999", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
+                          
+                        ]
                     )
                 ]
             )
