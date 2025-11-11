@@ -25,7 +25,7 @@ struct GenarationListView: View {
     var body: some View {
         NavigationStack {
             List(car1.generation) { gen in
-                NavigationLink(destination: KuzovListView(bodyT:gen)){
+                NavigationLink(destination: KuzovListView(Generation1:gen)){
                     
                     VStack(alignment: .center) {
                         Image(gen.imageName)
@@ -49,11 +49,11 @@ struct GenarationListView: View {
 }
 
 struct KuzovListView: View {
-    let bodyT : Generation
+    let Generation1 : Generation
     
     var body: some View {
         NavigationStack {
-            List(bodyT.kuzov) { bodyType in
+            List(Generation1.kuzov) { bodyType in
                 NavigationLink(destination: EngineTypes(engineOfModel: bodyType)) {
                     VStack {
                         Image(bodyType.imageName)
@@ -67,7 +67,7 @@ struct KuzovListView: View {
                             .font(.headline)
                     }
                 }
-            }.scrollContentBackground(.hidden).shadow(radius: 20).navigationTitle("\(bodyT.name) - Body Type")
+            }.scrollContentBackground(.hidden).shadow(radius: 20).navigationTitle("\(Generation1.name) - Body Type")
         }
     }
 }
@@ -79,14 +79,8 @@ struct EngineTypes : View {
     var body : some View {
         NavigationStack {
             List(engineOfModel.engines) { engineInfo in
+                NavigationLink(destination: LastInfoView(engineConfig: engineInfo)) {
                 VStack {
-//                    Image(engineInfo.imageName)
-//                        .resizable()
-//                        .scaledToFill()
-//                        .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
-////                        .frame(width: 400,height: 200)
-//                        .padding(.horizontal)
-                    
                     VStack {
                         Text(engineInfo.name)
                             .font(.largeTitle)
@@ -99,28 +93,29 @@ struct EngineTypes : View {
                     }
                     
                     VStack(alignment: .center, spacing: 5) {
-                    HStack {
-                        Text("Объем: \(engineInfo.volume)")
-                        Spacer()
-                        Text("Мощность: \(engineInfo.horsepower) л/c")
-
-                    }
-                    
-                    HStack {
-                        Text("Двигатель: \(engineInfo.code)")
-                        Spacer()
-                        Text("Топливо:")
-                        Text(engineInfo.fuelType)
-                    }
-
-                    HStack {
-                        ForEach(engineInfo.drive) { d in
-                            HStack {
-                                Text("Привод:")
-                                Text(d.type)
+                        HStack {
+                            Text("Объем: \(engineInfo.volume)")
+                            Spacer()
+                            Text("Мощность: \(engineInfo.horsepower) л/c")
+                            
+                        }
+                        
+                        HStack {
+                            Text("Двигатель: \(engineInfo.code)")
+                            Spacer()
+                            Text("Топливо:")
+                            Text(engineInfo.fuelType)
+                        }
+                        
+                        HStack {
+                            ForEach(engineInfo.drive) { d in
+                                HStack {
+                                    Text("Привод:")
+                                    Text(d.type)
                                 }
                             }
                         }
+                    }
                     }.padding(.horizontal,-12)
                 }
             }.scrollContentBackground(.hidden).shadow(radius: 20).navigationTitle(engineOfModel.bodyType).listStyle(.grouped)
@@ -129,10 +124,22 @@ struct EngineTypes : View {
 }
 
 
+struct LastInfoView: View {
+    let engineConfig : Engine
+    
+    var body: some View {
+        
+    }
+}
+
+
+
+
 #Preview {
+    //    LastInfoView()
     GenarationListView(car1: CarModel(
         name: "3-series", generation: [
-
+            
             Generation(
                 name: "E30",
                 year: "1982–1994",
@@ -144,12 +151,12 @@ struct EngineTypes : View {
                         imageName: "e30_sedan",
                         engines: [
                             Engine(name: "316", volume: "1.8", code: "M10B16", fuelType: "Бензин", horsepower: 90, years: "01.1983 - 12.1988",imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
-                           
+                            
                         ]
                     )
                 ]
             ),
-
+            
             // ---------- E36 ----------
             Generation(
                 name: "E36",
@@ -162,7 +169,7 @@ struct EngineTypes : View {
                         imageName: "e36_sedan",
                         engines: [
                             Engine(name: "316i", volume: "1.6", code: "M40B16", fuelType: "Бензин", horsepower: 99, years: "10.1990 - 08.1993", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
-                           
+                            
                         ]
                     ),
                     Kuzov(
@@ -180,7 +187,7 @@ struct EngineTypes : View {
                         imageName: "e36_compact",
                         engines: [
                             Engine(name: "316i", volume: "1.6", code: "M43B16", fuelType: "Бензин", horsepower: 102, years: "09.1993 - 04.1999", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
-                           
+                            
                         ]
                     ),
                     Kuzov(
@@ -189,7 +196,7 @@ struct EngineTypes : View {
                         imageName: "e36_touring",
                         engines: [
                             Engine(name: "316i", volume: "1.6", code: "M43B16", fuelType: "Бензин", horsepower: 102, years: "09.1993 - 04.1999", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
-                           
+                            
                         ]
                     ),
                     Kuzov(
@@ -198,15 +205,14 @@ struct EngineTypes : View {
                         imageName: "e36_cabriolet",
                         engines: [
                             Engine(name: "318i", volume: "1.8", code: "M43B18", fuelType: "Бензин", horsepower: 115, years: "09.1993 - 04.1999", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
-                          
+                            
                         ]
                     )
                 ]
             )
-            ]
-        )
+        ]
     )
-
+    )
 }
 
 
@@ -214,6 +220,7 @@ struct EngineTypes : View {
 
 
 
+//
 //#Preview {
 //    EngineTypes(engineOfModel:
 //        Kuzov(
