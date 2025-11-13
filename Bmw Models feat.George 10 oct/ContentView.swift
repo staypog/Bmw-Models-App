@@ -135,85 +135,90 @@ struct LastInfoView: View {
 
 
 
-#Preview {
-    //    LastInfoView()
-    GenarationListView(car1: CarModel(
-        name: "3-series", generation: [
-            
-            Generation(
-                name: "E30",
-                year: "1982–1994",
-                imageName: "e30",
-                kuzov: [
-                    Kuzov(
-                        bodyType: "Sedan",
-                        year: "1983–1991",
-                        imageName: "e30_sedan",
-                        engines: [
-                            Engine(name: "316", volume: "1.8", code: "M10B16", fuelType: "Бензин", horsepower: 90, years: "01.1983 - 12.1988",imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
-                            
-                        ]
-                    )
-                ]
-            ),
-            
-            // ---------- E36 ----------
-            Generation(
-                name: "E36",
-                year: "1990–2000",
-                imageName: "e36",
-                kuzov: [
-                    Kuzov(
-                        bodyType: "Sedan",
-                        year: "1990–1998",
-                        imageName: "e36_sedan",
-                        engines: [
-                            Engine(name: "316i", volume: "1.6", code: "M40B16", fuelType: "Бензин", horsepower: 99, years: "10.1990 - 08.1993", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
-                            
-                        ]
-                    ),
-                    Kuzov(
-                        bodyType: "Coupe",
-                        year: "1992–1999",
-                        imageName: "e36_coupe",
-                        engines: [
-                            Engine(name: "316i", volume: "1.6", code: "M43B16", fuelType: "Бензин", horsepower: 102, years: "09.1993 - 04.1999", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
-                            
-                        ]
-                    ),
-                    Kuzov(
-                        bodyType: "Compact",
-                        year: "1994–2000",
-                        imageName: "e36_compact",
-                        engines: [
-                            Engine(name: "316i", volume: "1.6", code: "M43B16", fuelType: "Бензин", horsepower: 102, years: "09.1993 - 04.1999", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
-                            
-                        ]
-                    ),
-                    Kuzov(
-                        bodyType: "Touring",
-                        year: "1995–1999",
-                        imageName: "e36_touring",
-                        engines: [
-                            Engine(name: "316i", volume: "1.6", code: "M43B16", fuelType: "Бензин", horsepower: 102, years: "09.1993 - 04.1999", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
-                            
-                        ]
-                    ),
-                    Kuzov(
-                        bodyType: "Cabriolet",
-                        year: "1993–1999",
-                        imageName: "e36_cabriolet",
-                        engines: [
-                            Engine(name: "318i", volume: "1.8", code: "M43B18", fuelType: "Бензин", horsepower: 115, years: "09.1993 - 04.1999", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
-                            
-                        ]
-                    )
-                ]
-            )
-        ]
-    )
-    )
+#Preview{
+    LastInfoView(engineConfig: Engine(name: "520i", volume: "2.0", code: "M50B20", fuelType: "Бензин", horsepower: 150,years: "", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]))
 }
+
+
+
+//#Preview {
+//    GenarationListView(car1: CarModel(
+//        name: "3-series", generation: [
+//            
+//            Generation(
+//                name: "E30",
+//                year: "1982–1994",
+//                imageName: "e30",
+//                kuzov: [
+//                    Kuzov(
+//                        bodyType: "Sedan",
+//                        year: "1983–1991",
+//                        imageName: "e30_sedan",
+//                        engines: [
+//                            Engine(name: "316", volume: "1.8", code: "M10B16", fuelType: "Бензин", horsepower: 90, years: "01.1983 - 12.1988",imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
+//                            
+//                        ]
+//                    )
+//                ]
+//            ),
+//            
+//            // ---------- E36 ----------
+//            Generation(
+//                name: "E36",
+//                year: "1990–2000",
+//                imageName: "e36",
+//                kuzov: [
+//                    Kuzov(
+//                        bodyType: "Sedan",
+//                        year: "1990–1998",
+//                        imageName: "e36_sedan",
+//                        engines: [
+//                            Engine(name: "316i", volume: "1.6", code: "M40B16", fuelType: "Бензин", horsepower: 99, years: "10.1990 - 08.1993", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
+//                            
+//                        ]
+//                    ),
+//                    Kuzov(
+//                        bodyType: "Coupe",
+//                        year: "1992–1999",
+//                        imageName: "e36_coupe",
+//                        engines: [
+//                            Engine(name: "316i", volume: "1.6", code: "M43B16", fuelType: "Бензин", horsepower: 102, years: "09.1993 - 04.1999", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
+//                            
+//                        ]
+//                    ),
+//                    Kuzov(
+//                        bodyType: "Compact",
+//                        year: "1994–2000",
+//                        imageName: "e36_compact",
+//                        engines: [
+//                            Engine(name: "316i", volume: "1.6", code: "M43B16", fuelType: "Бензин", horsepower: 102, years: "09.1993 - 04.1999", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
+//                            
+//                        ]
+//                    ),
+//                    Kuzov(
+//                        bodyType: "Touring",
+//                        year: "1995–1999",
+//                        imageName: "e36_touring",
+//                        engines: [
+//                            Engine(name: "316i", volume: "1.6", code: "M43B16", fuelType: "Бензин", horsepower: 102, years: "09.1993 - 04.1999", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
+//                            
+//                        ]
+//                    ),
+//                    Kuzov(
+//                        bodyType: "Cabriolet",
+//                        year: "1993–1999",
+//                        imageName: "e36_cabriolet",
+//                        engines: [
+//                            Engine(name: "318i", volume: "1.8", code: "M43B18", fuelType: "Бензин", horsepower: 115, years: "09.1993 - 04.1999", imageName: "", drive: [Drive(type: "RWD", description: "Задний привод", imageName: "")]),
+//                            
+//                        ]
+//                    )
+//                ]
+//            )
+//        ]
+//    )
+//    )
+//}
 
 
 
